@@ -5,3 +5,22 @@
     Play!
   </button>
 </form>
+<div class="col-xs-12">
+    <h4>
+        Join an existing group:
+    </h4>
+</div>
+<div data-wrapper-for="Grid2" class="container-fluid">
+  <div class="join-group-cnt block-center" ng-repeat="game in games track by $index">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button class="btn-block btn btn-link" type="button" ng-click="joinSession( session.sessionName )">
+                Join <span class="bold">{{ game.gameName }}</span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>

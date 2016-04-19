@@ -24,6 +24,14 @@ angular.module( 'tictactoe.services', [] )
         console.error(err);
       });        
     },
+    fetchGames: function() {
+      return $http.get('/api/games')
+      .then(function(response) {
+        return response.data;
+      }, function(err) {
+        console.error(err);
+      });
+    }
   }
 })
 .factory('Lobby', function($http){

@@ -9,5 +9,11 @@ module.exports = {
       res.status = 201;
       res.end();
     })
-  }
+  },
+  getGame: function(req, res, next) {
+    Game.findAll()
+    .then(function(games) {
+      res.send(games);
+    })
+  },
 }
