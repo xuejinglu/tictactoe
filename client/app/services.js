@@ -1,10 +1,9 @@
 angular.module( 'tictactoe.services', [] )
-.factory('Landing', function( $http, $window, $location) {
+.factory('Landing', function($http, $window, $location) {
   return {
     createGame: function(gameName) {
       return $http.post('/api/games', {
         gameName: gameName,
-        username:username,
       })
       .then(function(response) {
         return response;
@@ -14,10 +13,20 @@ angular.module( 'tictactoe.services', [] )
     },
     startGame: function(gameName) {
       return $location.path('/lobby');
-    }
+    },
+    createUser: function(username) {
+      return $http.post('/api/users', {
+        username:username,
+      })
+      .then(function(response){
+        return response;
+      }, function(err) {
+        console.error(err);
+      });        
+    },
   }
 })
-.factory('Lobby', function(){
+.factory('Lobby', function($http){
   return {
     getPlayers: function(gameID) {
     return $http.get('/api/user/:gameID')

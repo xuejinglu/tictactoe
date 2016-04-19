@@ -3,7 +3,8 @@ angular.module('tictactoe.landing', [])
   $scope.gameName = '';
   $scope.username = '';
   $scope.game = function() {
-    Landing.createGame($scope.username, $scope.gameName);
-    Landing.startGame($scope.username, $scope.gameName);
+    Landing.createGame($scope.gameName);
+    Landing.startGame($scope.gameName);
+    Landing.createUser($scope.username);
   };
 });
